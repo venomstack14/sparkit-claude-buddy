@@ -1,0 +1,65 @@
+#sparkit-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px 6px;
+  position: relative;
+}
+
+.sparkit-wrap {
+  color: #6FA0C2;
+}
+
+.sparkit-svg {
+  cursor: pointer;
+  display: block;
+  transition: transform 0.15s ease-out;
+}
+
+.sparkit-bodywrap {
+  transform-origin: 36px 40px;
+}
+
+.sparkit-sparks {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 44px;
+  height: 30px;
+  pointer-events: none;
+}
+
+.sparkit-spark {
+  position: absolute;
+  color: #F0B429;
+  font-size: 11px;
+  font-weight: 600;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.sparkit-bubble {
+  font-size: 12px;
+  color: var(--text-secondary, #666);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sparkit-bubble.show {
+  opacity: 1;
+}
+
+.sparkit-fallback {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted, #999);
+}
+
+.sparkit-fallback input[type="range"] {
+  width: 90px;
+}

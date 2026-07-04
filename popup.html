@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 250px; font-family: -apple-system, sans-serif; padding: 14px; margin: 0; color: #20303A; }
+  h1 { font-size: 14px; margin: 0 0 8px; font-weight: 600; }
+  .badge { font-size: 12px; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 10px; }
+  .badge.real { background: #E1F5EE; color: #085041; }
+  .badge.estimate { background: #FAEEDA; color: #633806; }
+  .row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+  .row span:last-child { font-weight: 600; }
+  .divider { border-top: 1px solid #eee; margin: 10px 0; }
+  label { font-size: 12px; color: #666; display: block; margin-bottom: 4px; }
+  input[type="range"], input[type="number"] { width: 100%; }
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; margin-top: 8px; }
+  button { width: 100%; margin-top: 10px; padding: 6px; border: 1px solid #ccc; background: #fafafa; border-radius: 6px; font-size: 12px; cursor: pointer; }
+  .note { font-size: 11px; color: #888; margin-top: 8px; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <h1>Sparkit</h1>
+  <div id="badge" class="badge estimate">estimate</div>
+  <div class="row"><span>Usage left</span><span id="pct-val">—</span></div>
+  <div id="banner-note" class="note" style="display:none;"></div>
+
+  <div class="divider"></div>
+
+  <label for="cap-input">Assumed messages per 5-hour window</label>
+  <input type="number" id="cap-input" min="1" max="200" value="20">
+
+  <label for="manual-slider" style="margin-top:10px;">Set mood manually</label>
+  <input type="range" id="manual-slider" min="0" max="100" step="1" value="75">
+
+  <div class="toggle-row">
+    <span>Low-usage notifications</span>
+    <input type="checkbox" id="notify-toggle" checked>
+  </div>
+
+  <button id="auto-btn">Go back to automatic</button>
+
+  <p class="note">Free accounts don't get a usage page from Anthropic, so the number
+  above is a local estimate based on messages you've sent, not an exact reading.
+  It resets to asleep for real (not estimated) if Claude actually tells you you've
+  hit your limit.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
